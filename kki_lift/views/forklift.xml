@@ -1,0 +1,125 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="kki_lift.list">
+            <field name="name">kki_lift list</field>
+            <field name="model">kki_lift.lift</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="price"/>
+                    <field name="tax"/>
+                </tree>
+            </field>
+        </record>
+        <!--看板-->
+        <record model="ir.ui.view" id="view_lift_kanban">
+            <field name="name">lift.kanban</field>
+            <field name="model">kki_lift.lift</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile"> <!--固定-->
+                    <field name="name"/>
+                    <field name="image"/>
+                    <field name="size"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click"><!--クリックを可能にするタブ-->
+                                <div class="oe_kanban_global_image">
+                                    <field name="image" widget="image" class="oe_avatar"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <ul>
+                                        <li>
+                                            <field name="name"/>
+                                            <field name="size"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="kki_lift.form">
+            <field name="name">kki_lift form</field>
+            <field name="model">kki_lift.lift</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="launch_date"/>
+                                <field name="vendor"/>
+                                <field name="note"/>
+                                <field name="size"/>
+                                <field name="price"/>
+                                <field name="tax"/>
+                            </group>
+                            <group>
+                                <field name="image" widget="image"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="check history">
+                                <field name="check_history_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="check_date"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="kki_lift.action_window">
+            <field name="name">kki_lift window</field>
+            <field name="res_model">kki_lift.lift</field>
+            <field name="view_mode">kanban,tree,form</field><!--記載順に表示される-->
+        </record>
+
+
+        <!-- server action to the one above -->
+        <!--
+            <record model="ir.actions.server" id="kki_lift.action_server">
+              <field name="name">kki_lift server</field>
+              <field name="model_id" ref="model_kki_lift_kki_lift"/>
+              <field name="state">code</field>
+              <field name="code">
+                action = {
+                  "type": "ir.actions.act_window",
+                  "view_mode": "tree,form",
+                  "res_model": model._name,
+                }
+              </field>
+            </record>
+        -->
+
+        <!-- Top menu item -->
+
+        <menuitem name="kki_lift" id="kki_lift.menu_root" web_icon="kki_lift,static/description/forklift.webp"/>
+
+        <!-- menu categories -->
+
+        <menuitem name="lift" id="kki_lift.lift" parent="kki_lift.menu_root"/>
+        <!--
+            <menuitem name="Menu 2" id="kki_lift.menu_2" parent="kki_lift.menu_root"/>
+        -->
+        <!-- actions -->
+
+        <menuitem name="lift" id="kki_lift.lift_list" parent="kki_lift.lift"
+                  action="kki_lift.action_window"/>
+        <!--
+            <menuitem name="Server to list" id="kki_lift" parent="kki_lift.menu_2"
+                      action="kki_lift.action_server"/>
+        -->
+    </data>
+</odoo>

@@ -1,0 +1,61 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+
+        <record model="ir.ui.view" id="kki_purchasery.form">
+            <field name="name">kki_purchasery form</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="before">
+                    <group>
+                        <field name="memo" string="メモ"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+        <!--
+            <record model="ir.actions.act_window" id="kki_purchasery.action_window">
+              <field name="name">kki_purchasery window</field>
+              <field name="res_model">kki_purchasery.kki_purchasery</field>
+              <field name="view_mode">tree,form</field>
+            </record>
+        -->
+
+        <!-- server action to the one above -->
+        <!--
+            <record model="ir.actions.server" id="kki_purchasery.action_server">
+              <field name="name">kki_purchasery server</field>
+              <field name="model_id" ref="model_kki_purchasery_kki_purchasery"/>
+              <field name="state">code</field>
+              <field name="code">
+                action = {
+                  "type": "ir.actions.act_window",
+                  "view_mode": "tree,form",
+                  "res_model": model._name,
+                }
+              </field>
+            </record>
+        -->
+
+        <!-- Top menu item -->
+        <!--
+            <menuitem name="kki_purchasery" id="kki_purchasery.menu_root"/>
+        -->
+        <!-- menu categories -->
+        <!--
+            <menuitem name="Menu 1" id="kki_purchasery.menu_1" parent="kki_purchasery.menu_root"/>
+            <menuitem name="Menu 2" id="kki_purchasery.menu_2" parent="kki_purchasery.menu_root"/>
+        -->
+        <!-- actions -->
+        <!--
+            <menuitem name="List" id="kki_purchasery.menu_1_list" parent="kki_purchasery.menu_1"
+                      action="kki_purchasery.action_window"/>
+            <menuitem name="Server to list" id="kki_purchasery" parent="kki_purchasery.menu_2"
+                      action="kki_purchasery.action_server"/>
+        -->
+    </data>
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_kki_lift_lift,kki_lift.lift,model_kki_lift_lift,base.group_user,1,1,1,1
+access_kki_lift_size,kki_lift.size,model_kki_lift_size,base.group_user,1,1,1,1
+access_kki_lift_history,kki_lift.history,model_kki_lift_history,base.group_user,1,1,1,1
