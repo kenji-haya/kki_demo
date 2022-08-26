@@ -10,6 +10,12 @@
                     <field name="marge_name" invisible="1"/>
                 </xpath>
             </field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/><!--継承先の外部ID-->
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='barcode']" position="before">
+                    <field name="unified_id"/>
+                </xpath>
+            </field>
         </record>
 
         <record model="ir.ui.view" id="kki_product.list">
