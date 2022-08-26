@@ -26,7 +26,7 @@
     'data': [
         # 'security/ir.model.access.csv',
         'views/kki_forklift.xml',
-        'views/templates.xml',
+        'views/product.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

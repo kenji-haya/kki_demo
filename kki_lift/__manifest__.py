@@ -25,7 +25,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/forklift.xml',
-        'views/templates.xml',
+        'views/product.xml',
         'views/size.xml',
         'views/check_history.xml',
     ],
