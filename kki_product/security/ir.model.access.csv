@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_kki_product_kki_product,kki_product.kki_product,model_kki_product_kki_product,base.group_user,1,1,1,1
+access_product.template,product.template,model_product_template,base.group_user,1,1,1,1
+access_kki_product_categoryid,kki_product_categoryid,model_kki_product_categoryid,base.group_user,1,1,1,1

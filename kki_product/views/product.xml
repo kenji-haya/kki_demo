@@ -14,6 +14,7 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='barcode']" position="before">
                     <field name="unified_id"/>
+                    <field name="product_category"/>
                 </xpath>
             </field>
         </record>
@@ -42,6 +43,20 @@
                 </xpath>
                 <xpath expr="//field[@name='name']" position="after">
                     <field name="marge_name"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!--フィルタを設定-->
+        <record id="search_view_kki_stock" model="ir.ui.view">
+            <field name="name">kki_product filter</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_search_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='filter_to_sell']" position="before">
+                    <filter string="在庫可能品" name="product_type"
+                            domain="[('type','=', 'product')]"/>
+                    <separator/>
                 </xpath>
             </field>
         </record>
